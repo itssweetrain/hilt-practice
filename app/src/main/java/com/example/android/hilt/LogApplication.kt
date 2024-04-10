@@ -17,9 +17,13 @@
 package com.example.android.hilt
 
 import android.app.Application
+import dagger.hilt.android.HiltAndroidApp
 
+/** 애플리케이션 컨테이너는 앱의 상위 컨테이너이므로 다른 컨테이너는 이 상위 컨테이너에서 제공하는 종목 항목에 액세스할 수 있음 **/
+@HiltAndroidApp
 class LogApplication : Application() {
 
+    /** 앱의 수명 주기에 연결된 컨테이너를 추가 **/
     lateinit var serviceLocator: ServiceLocator
 
     override fun onCreate() {
