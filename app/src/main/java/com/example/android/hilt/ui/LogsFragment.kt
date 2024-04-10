@@ -48,7 +48,7 @@ class LogsFragment : Fragment() {
      * 이를 필드 삽입이라고 함
      */
     @Inject lateinit var logger: LoggerLocalDataSource
-    @Inject private lateinit var dateFormatter: DateFormatter
+    @Inject lateinit var dateFormatter: DateFormatter
 
     private lateinit var recyclerView: RecyclerView
 
