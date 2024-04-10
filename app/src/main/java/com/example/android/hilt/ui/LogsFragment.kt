@@ -30,14 +30,25 @@ import com.example.android.hilt.R
 import com.example.android.hilt.data.Log
 import com.example.android.hilt.data.LoggerLocalDataSource
 import com.example.android.hilt.util.DateFormatter
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 /**
  * Fragment that displays the database logs.
  */
+
+/**
+ * Android 클래스 수명 주기를 따르는 컨테이너가 생성됨
+ */
+@AndroidEntryPoint
 class LogsFragment : Fragment() {
 
-    private lateinit var logger: LoggerLocalDataSource
-    private lateinit var dateFormatter: DateFormatter
+    /**
+     * @Inject 주석을 사용하여 Hilt에서 삽입하려는 다른 유형의 인스턴스를 필드에 삽입하도록 할 수 있음
+     * 이를 필드 삽입이라고 함
+     */
+    @Inject lateinit var logger: LoggerLocalDataSource
+    @Inject private lateinit var dateFormatter: DateFormatter
 
     private lateinit var recyclerView: RecyclerView
 
@@ -57,14 +68,6 @@ class LogsFragment : Fragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-
-        populateFields(context)
-    }
-
-    private fun populateFields(context: Context) {
-        logger = (context.applicationContext as LogApplication).serviceLocator.loggerLocalDataSource
-        dateFormatter =
-            (context.applicationContext as LogApplication).serviceLocator.provideDateFormatter()
     }
 
     override fun onResume() {
