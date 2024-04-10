@@ -8,6 +8,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
+import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
 /**
@@ -16,6 +17,7 @@ import javax.inject.Singleton
  * @InstallIn 은 어느 컨테이너에서 Hilt 구성요소를 지정하여 결합을 사용할 수 있는지 Hilt에 알려줌
  */
 @Module
+@InstallIn(SingletonComponent::class)
 object DatabaseModule {
 
     @Provides

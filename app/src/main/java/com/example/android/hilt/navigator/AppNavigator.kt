@@ -27,6 +27,11 @@ enum class Screens {
 /**
  * Interfaces that defines an app navigator.
  */
+
+/**
+ * AppNavigator 는 인터페이스이므로 생성자 삽입을 사용할 수 없음
+ * 인터페이스에 사용할 구현을 Hilt에 알리려면 Hilt 모듈 내 함수에 @Binds 주석을 사용하면 됨
+ */
 interface AppNavigator {
     // Navigate to a given screen.
     fun navigateTo(screen: Screens)
