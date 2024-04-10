@@ -24,10 +24,10 @@ import dagger.hilt.android.HiltAndroidApp
 class LogApplication : Application() {
 
     /** 앱의 수명 주기에 연결된 컨테이너를 추가 **/
-    lateinit var serviceLocator: ServiceLocator
+//    lateinit var serviceLocator: ServiceLocator
 
     override fun onCreate() {
         super.onCreate()
-        serviceLocator = ServiceLocator(applicationContext)
+//        serviceLocator = ServiceLocator(applicationContext)
     }
 }
